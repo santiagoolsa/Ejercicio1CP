@@ -1,22 +1,35 @@
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 public class Cliente {
 
+
     public static void main(String[] args) throws IOException {
+
+        //me conecto con el servidor
         Socket socket = new Socket("localhost", 5000);
 
-        BufferedReader in = new BufferedReader(
+        //leo el texto que recibo del servidor
+        BufferedReader entrada = new BufferedReader(
                 new InputStreamReader(socket.getInputStream()));
-        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-        BufferedReader kb = new BufferedReader(
+
+        //envio al serrvidor texto
+        PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
+
+        //area de lectura escribe usuario
+        BufferedReader escribe_usuario = new BufferedReader(
                 new InputStreamReader(System.in));
 
-        System.out.println(in.readLine());
+        System.out.println(entrada.readLine());
 
         while (true) {
-            out.println(kb.readLine());
-            System.out.println(in.readLine());
+            salida.println(escribe_usuario.readLine());
+            System.out.println(entrada.readLine());
+            // PRUEBA SUBIDA GIT
         }
     }
-}//prueba inserciono git 2
+}
+
