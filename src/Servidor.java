@@ -55,7 +55,7 @@ public class Servidor {
                 if (numero_secreto < numero_introducido) salida_datos_cliente.println("El número es mayor");
                 else if (numero_secreto > numero_introducido) salida_datos_cliente.println("El número es menor");
                 else {
-                    salida_datos_cliente.println("número correcto.\rNuevo juego\rIntroduce númoero: ");
+                    salida_datos_cliente.println("Número correcto. Nuevo juego, adivina otro número (1-100)");
                     numero_introducido = r.nextInt(100) + 1;
                 }
             }
@@ -65,6 +65,5 @@ public class Servidor {
             e.printStackTrace();
         }
     }
-
 }
 //subida con conmits con comentarios
